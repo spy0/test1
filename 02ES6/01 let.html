@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		// 在es6中 我们可以使用let来声明变量 它跟var 很像
+
+		// let a = 1;
+		// console.log(a);
+
+		
+		// 变量提升 var 声明的变量 在全局都起作用
+		// {
+		// 	var a = 2;
+		// }
+			
+
+		// alert(a);
+		
+		// let 声明的变量 不存在变量的提升 只在当前的块级作用域中有效
+		{
+			let a = 3;
+		}
+
+		// console.log(a)  //a is not defined
+
+		// var a = [];
+
+		// for(let i = 0;i<10;i++){
+		// 	a[i] = function(){
+		// 		console.log(i)
+		// 	}
+		// }
+		// a[2]();  //10
+
+
+		// 使用let 的注意点
+		
+		// let 不允许重复声明
+		// {
+		// 	let a = 4;
+		// 	let a = 5
+		// }
+
+		function add(ap){
+			ap = 5
+
+			let ap;
+			console.log(ap)
+		}
+		
+		add(3)
+
+	</script>
+	
+</body>
+</html>

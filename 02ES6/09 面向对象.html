@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript">
+		// 什么是面向对象  万事万物皆对象
+		// 三大特性: 封装 继承 多态
+		// 继承: 继承了父类的属性和方法 也可以拥有自己的属性和方法
+		
+		/* es5 使用构造函数方式创建
+		function Animal(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		
+		Animal.prototype.showName = function(){
+			
+			console.log(this.name);
+		}
+		Animal.prototype.showAge = function(){
+			
+			console.log(this.age);
+		}
+
+		// 把打飞机的代码改成es6
+		var a1 = new Animal('闪电',2);
+		*/
+
+
+		// es6 使用class类方式创建
+
+		class Animal{
+			
+			// 构造器  当你创建实例之后 constructor()方法会立刻调用 通常这个方法初始化对象的属性
+			constructor(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			showName(n=2,m=3){
+				console.log(n+m);
+			}
+			showAge(){
+				console.log(this.age);
+			}
+		}
+		var a2 = new Animal('点点',3);
+		a2.showName();
+
+
+
+
+
+	</script>
+</body>
+</html>

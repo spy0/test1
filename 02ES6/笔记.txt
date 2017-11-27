@@ -1,0 +1,185 @@
+----------------------ECMAScript发生了什么--------------
+编程语言Javascript是ECMAscript的实现和扩展,由ECMA参与进行标准化.ECMAScript定义了什么?
+1.语言语法---语法即系规则,关键字,语句,声明,运算符等等
+2.类型--布尔值,对象,数字,字符串
+3.原型和继承
+4.内建对象和函数标准库--JSON Math 数组方法等等
+
+ECMAScript标准 明确规定 不定义HTML和css的相关功能,也不定义类似DOM的web的api
+ECMAScript涵盖了各种环境中js的使用场景,无论是浏览器环境还是类似nodejs的非浏览器环境
+
+2015年6月 ESMAScript语法规范 最早草案定稿  这意味着 早年的夏天 我们已经迎来了最新的javascript核心语言标准
+
+早在2009年，上一版ES5刚刚发布，自那时起，ES标准委员会一直在紧锣密鼓地筹备新的JS语言标准——ES6。
+
+ES6是一次重大的版本升级，与此同时，由于ES6秉承着最大化兼容已有代码的设计理念，你过去编写的JS代码将继续正常运行。事实上，许多浏览器已经支持部分ES6特性，并将继续努力实现其余特性。这意味着，在一些已经实现部分特性的浏览器中，你的JS代码已经可以正常运行。如果到目前为止你尚未遇到任何兼容性问题，那么你很有可能将不会遇到这些问题，浏览器正飞速实现各种新特性。
+
+
+ECAMScript标准的历史版本分别是 1 2 3 5 
+96年 1
+98年 2
+99年 3
+07年 4(被废弃了)
+08年 3.1 代号 Harmony  和谐
+09年 5
+
+
+ECMAScript是一门充满活力的语言，并在不断进化中。
+
+未来版本的规范中将持续进行重要的技术改进。
+
+这一声明许下了一个未来的承诺。
+
+兑现承诺
+
+2009年发布的改进版本ES5，引入了Object.create()、Object.defineProperty()、getters和setters、严格模式以及JSON对象。我已经使用过所有这些新特性，并且我非常喜欢ES5做出的改进。但事实上，这些改进并没有深入影响我编写JS代码的方式，对我来说最大的革新大概就是新的数组方法：.map()、. filter()这些。
+
+但是，ES6并非如此！经过持续几年的磨砺，它已成为JS有史以来最实质的升级，新的语言和库特性就像无主之宝，等待有识之士的发掘。新的语言特性涵盖范围甚广，小到受欢迎的语法糖，例如箭头函数（arrow functions）和简单的字符串插值（string interpolation），大到烧脑的新概念，例如代理（proxies）和生成器（generators）。
+
+ES6将彻底改变你编写JS代码的方式！
+
+这一系列旨在向你展示如何仔细审阅ES6提供给JavaScript程序员的这些新特性。
+
+我们将从一个经典的“遗漏特性”说起，十年来我一直期待在JavaScript中看到的它。所以从现在起就加入我们吧，一起领略一下ES6迭代器（iterators）和新的for-of循环！
+
+——————————————es6  let和const——————
+一.let
+es6新增了let命令 用来声明变量,它的用法类似var,但是所声明的变量,只在let所在的代码块中有效,比如for循环计数器,就很适合用let命令
+
+注意:
+1.如果let声明了一个局部变量tmp,导致此作用域为块级作用域
+
+es6明确规定,如果区域块中let和const命令,这个区域块对这些命令声明的变量,从一开始就形成了封闭作用域.凡是在声明之前就使用这些命令,就会报错
+
+2.不允许重复声明
+
+3.不能在声明函数内部重新声明参数
+
+二.const
+1.也是用来声明变量,但是声明的是常量,一旦声明,常量的值无法改变
+cnst a=12;
+a=13;
+console.log(a) //a=12
+2.跟let命令一样,只在声明的块级作用域内有效
+
+3.不可重复声明
+
+———————变量的解构赋值————
+1.数组的解构赋值
+
+
+
+
+
+
+-----------------for-of------------------
+注意:以前for-in循环 
+var arr=['a','b','c'];
+for(var index of arr){
+	//index  是索引 0,1,2
+}
+for(var name of arr){
+	//name是变量  a,b,c
+}
+
+Map对象保存键值对 [key,value] 和json相似
+
+map对象的存在就是为了配合for-of循环配合而生的
+
+//创建一个map对象
+var map = new Map();
+
+//设置
+//for...of 循环为每次循环返回一个[key，value]数组。
+
+
+
+
+----------------箭头函数 常用格式---------------
+
+function(){} ===> ()=>{}
+
+箭头函数注意:
+1.箭头函数会改变this的指向,使用箭头函数,会将this指向于全局的windows对象  一定要注意(后面会出现这种情况)
+
+2.使用箭头函数 arguments不能使用
+
+
+---------------对象 的单体模式---------------------
+单体模式:
+		json
+		var name='abb';
+		var age=101;
+		var preson={
+		    	name,
+		    	age,
+		    	showName(){
+		       		return this.name;
+		    	},
+		    	showAge(){
+		        		return this.age;
+		   	 }
+		}
+
+-----------------面向对象----------------
+
+面向对象:
+	之前：
+		人类	工人类
+		function Person(name,age){	//类、构造函数
+		    	this.name=name;
+		    	this.age=age;
+		}
+		Person.prototype.showName=function(){
+		    	return this.name;
+		};
+		Person.prototype.showAge=function(){
+		    	return this.age;
+		};
+
+	ES6:
+		类	class
+		构造函数	constructor	生成完实例以后，自己就执行的
+
+		class Person{ //类
+		    constructor(name,age){
+		        	this.name=name;
+		        	this.age=age;
+		    }
+		    showName(){
+		        	return this.name;
+		    }
+		    showAge(){
+		        	return this.age;
+		    }
+		}
+
+	继承:
+		之前:  子类.prototype=new 父类();
+
+		ES6: 
+		class Worker extends Person{
+			constructor(){
+				super()	//调用父级构造
+			}
+        		}
+
+	队列类:
+		[1,2,3,4]
+
+		var q=new Queue([1,2,3,4]);
+
+		q.shift();
+
+		q._queue
+
+
+----------------Promise 承诺--------------
+
+
+ 就是一个对象,用来传递异步操作的数据(消息)
+
+ 有三个过程 pending ->resolve(完成 fulfilled)->rejected(拒绝)
+
+
+

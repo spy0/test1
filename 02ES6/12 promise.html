@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+
+	
+	
+    //  let和const
+    //  模板字符串 变量的解构赋值
+    //  *** 箭头函数  对象的创建方法 =>类方式创建  对象单体模式  
+    //  **** promise对象
+
+    // 模块的概念
+
+
+
+    // setTimeout(function(name) {
+    //     var catList = name + ',';
+
+    //     setTimeout(function(name) {
+    //         catList += name + ',';
+
+    //         setTimeout(function(name) {
+    //             catList += name + ',';
+
+    //             setTimeout(function(name) {
+    //                 catList += name + ',';
+
+    //                 setTimeout(function(name) {
+    //                     catList += name;
+
+    //                     console.log(catList);
+
+    //                 }, 1000, 'Lion');
+
+    //             }, 1000, 'Snow Leopard');
+
+    //         }, 1000, 'Lynx');
+
+    //     }, 1000, 'Jaguar');
+    // }, 1000, 'Panther');
+
+    //1. promise对象  通过new的方式创建 
+    //2.构造函数Promise的参数是一个函数,该函数接收两个参数resolve和reject,他们分别是两个函数,这两个函数的作用就是将promise的状态从pending（等待）转换为resolved（已解决）或者从pending（等待）转换为rejected（已失败）
+	
+	/*
+    var promise = new Promise((resolve, reject) => {
+
+        var flag = Math.random();
+        setTimeout(function() {
+            if (flag>0.5) {
+                resolve('已解决')
+            }else{
+            	reject('已失败')
+            }
+        }, 1000)
+
+    })
+
+    //创建后的promise有一些方法，then和catch。当然我们也可以人为的在Promise函数上添加一些满足我们自己需求的方法，方便每一个promise对象使用
+
+    promise.then(function(result){
+		console.log(result);
+    },function(err){
+		console.log(err);
+    })
+    */
+
+     var promise = new Promise((resolve, reject) => {
+
+        var flag = Math.random();
+
+        // 改成三目运算符的方式
+        setTimeout(()=>{
+            if (flag) {
+                resolve('Tom')
+            }else{
+            	reject('已失败')
+            }
+        }, 1000)
+
+    })
+
+
+    promise.then(function(result1){
+		// console.log(result1);
+		return new Promise((resolve, reject) => {
+
+        var flag = Math.random();
+
+        // 改成三目运算符的方式
+        setTimeout(()=>{
+            if (flag) {
+                resolve(`${result1},Mary`)
+            }else{
+            	reject('已失败')
+            }
+        }, 1000)
+
+    });
+    }).then(function(result2){
+		
+		console.log(result2);
+
+		throw new Error('hha');
+
+
+
+    }).catch(function(err){
+    	console.log(err);
+    })
+
+    // catch 方法是捕获异常的一个方法
+
+    // XMLHttpRequest
+
+
+    </script>
+</body>
+
+</html>

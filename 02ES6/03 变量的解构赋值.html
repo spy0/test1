@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript">
+		// 变量的解构赋值 (数组 对象  []  {})
+		// es6中允许按照一定的模式 对我们定义的变量进行赋值
+
+
+		// var a = 1;
+		// var b = 2;
+		// var c = 3;
+
+		// 数组的完全解构赋值
+		let [a,b,c] = [2,3,4];
+		console.log(a,b,c);
+
+		// 不完全解构解构
+		let [d,e] = [4,5,6];
+		console.log(d,e);
+
+
+
+		// 对象的解构赋值  即可以完全解构 也可以不完全解构
+
+		let {f,g} = {f:7,h:9,g:8};
+
+		console.log(f,g);
+		
+
+		// 数组中包含对象
+		// let [{a1,b1},{a2,b2},c3,d4] = [{b1:10,a1:12},{a2:100,b2:101},404,500];
+
+		// console.log(a1,b1,a2,b2,c3,d4);
+
+		var json = {
+			teacher:["张琳",28],
+			aaa:{
+				mark:'标记'
+			}
+		}
+
+		var {teacher,aaa} = json;
+
+		console.log(teacher[0],aaa.mark);
+
+		
+
+
+
+	</script>
+	
+</body>
+</html>

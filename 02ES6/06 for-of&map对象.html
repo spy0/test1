@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>	
+	<script type="text/javascript">
+		
+		
+		/*
+		var arr = [2,3,4];
+		var obj = {arr:1,"b":2,c:3,d:4};
+
+		//{0:1,1:2,2:3}
+
+		for(var key in obj){
+			console.log(key)
+		}
+		*/
+		
+
+		// 在es6 map对象 即可以遍历数组 又可以遍历我们的对象
+		
+		
+		var map = new Map();
+		console.log(map);
+
+		// map.set(key,value)
+		
+		// map对象 调用set()方法中的key可以是任意类型
+		map.set("a",1);
+		map.set("b",2);
+		map.set("c",3);
+
+		
+		// clear 是清除所有的map对象存储的值
+		//  map.clear();
+		// console.log(map);
+
+		map.delete('b');
+		console.log(map);
+
+		console.log(map.has('c'))
+
+		map.forEach(function(value,key){
+			
+			console.log(key,value);
+		})
+		
+		// 使用map 必须是通过for-of来循环遍历
+		// for(var key of map.keys()){
+		// 	console.log(key);
+		// }
+
+		console.log(map.keys());
+		
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>	
+
+		<script type="text/javascript">
+			
+			/*
+			var person = {
+				name:'少华',
+				age:12,
+				fav:()=>{
+					console.log(this.name);
+				}
+			}
+			person.fav();
+			*/
+
+			// 为了解决箭头函数this指向的问题 推出来一种写法 对象的单体模式
+
+			// fav(){} === fav:function(){}
+			var person = {
+				name:'少华',
+				age:12,
+				fav(){
+					console.log(this.name,this.age);
+				}
+			}
+			person.fav();
+
+		</script>
+	
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <ul>
+    </ul>
+    <script type="text/javascript" src='jquery-1.8.3.min.js'></script>
+    <script type="text/javascript">
+    // es5函数
+    // function add(x,y){
+
+    // 	return x+y;
+    // }
+    // console.log(add(3,4));
+
+    // 伪代码  function 函数名(){} ===> var 函数名 = ()=>{}
+
+    // var add = (x,y)=>{
+
+    // 	return x+y;
+    // }
+    // console.log(add(3,4))
+
+    /*
+    // es5字面量方式创建
+    var person = {
+    	name:'少帅',
+    	fav:function(){
+    		alert("上网")
+    	}
+    }
+
+    person.fav();
+    */
+
+    /* es6的写法
+    var person = {
+    	name:'少帅',
+    	fav:()=>{
+    		// alert("上网")
+    		
+    		console.log(this === person)
+    		console.log(this.name)
+    	}
+    }
+
+    person.fav();
+    */
+
+    //1.使用箭头函数的注意事项一  this的指向会发生改变 会指向window对象
+
+	
+
+
+    // 箭头函数对象本身是没有this变量，箭头函数的this都是指向定义它的时候外部函数的this，而不是使用它的时候的this,也就是所谓的闭包
+    /*
+    var person = {
+    	name:'少帅',
+    	fav:()=>{
+    		// alert("上网")
+    		
+    		console.log(this === window)
+    		console.log(this.name)
+    	}
+    }
+
+    person.fav();
+    */
+
+
+    //使用箭头函数注意事项2 arguments不能使用
+    var person = {
+        name: '少帅',
+        fav: () => {
+            // alert("上网")
+
+            console.log(this === window)
+            // console.log(arguments)
+        }
+    }
+
+    person.fav(2, 4, 6, 8);
+
+	
+	
+	/*
+    var person = {};
+    person.name = "少帅";
+    var _this = this;
+    person.fav = function() {
+        console.log(_this);
+    }
+    */
+
+    // $('<li>').text('123').addClass("li1").appendTo($('ul'));
+
+    // $('ul').on('click','li',()=>{
+
+    // 	console.log($(this));
+    // })
+    </script>
+</body>
+
+</html>
